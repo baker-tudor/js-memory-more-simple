@@ -47,7 +47,8 @@ body {
 }
 
 .card-name {
-
+    align-self: center;
+    font-size: xx-large;
 }
 
 .logo {
