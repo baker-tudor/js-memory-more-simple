@@ -19,8 +19,8 @@
         return `
             <div class="card">
                 <div class="front">
-                    <img class="card-image" src="${cardList[i]}">
-                    <h5 class="card-name">Space Man</h5>
+                    <img class="card-image" src="${card?.image}">
+                    <h5 class="card-name">${card?.name}</h5>
                 </div>
                 <div class="back">
                     <div class="box">
@@ -32,5 +32,17 @@
             </div>`;
     }
 
+    function renderAllCards(cardList) {
+        let html = "";
+        for(let i = 0; i < cardList.length; i++) {
+            html += renderCard(cardList[i])
+        }
+        return html;
+    }
 
+    function htmlRender() {
+        $('#board').append(renderAllCards(cardList))
+    }
+
+    htmlRender();
 })();
