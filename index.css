@@ -8,6 +8,11 @@ body {
     background-color: gray;
 }
 
+#board {
+    display: inline-flex;
+    flex-wrap: wrap;
+}
+
 .card {
     border: 2px solid black;
     width: 25vw;
@@ -42,7 +47,8 @@ body {
 }
 
 .card-name {
-
+    align-self: center;
+    font-size: xx-large;
 }
 
 .logo {
