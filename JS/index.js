@@ -47,16 +47,24 @@
 
     htmlRender();
 
-    function addToFirebase(cardList) {
-        for(let i = 0; i < cardList.length; i++) {
-            fetch("https://memory-2f07d-default-rtdb.firebaseio.com/memory.json", {
-                method: "put",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(cardList)
-            })
+    let nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+
+    function randomNum(nums) {
+        let newArray = [];
+        for(let i = nums.length - 1; i >= 0; i--) {
+            let number = ~~(Math.random() * nums.length);
+            newArray.push(nums.splice(number, 1)[0]);
         }
+        return newArray;
     }
-    addToFirebase(cardList);
+
+    function combineLists(nums) {
+        let nums2 = [...nums];
+        let list1 = randomNum(nums);
+        let list2 = randomNum(nums2);
+        let list3 = list1.concat(list2);
+    }
+
+    combineLists(nums);
+
 })();
