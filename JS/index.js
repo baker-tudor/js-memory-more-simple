@@ -81,6 +81,7 @@
             pair.push($(this)[0].dataset.name);
             if(pair[0] === pair[1]) {
                 console.log('You got a match!')
+                runMatch(pair);
             }
             click1 = false;
             click2 = false;
@@ -88,5 +89,12 @@
         }
 
     })
+
+    function runMatch(pair) {
+        //loop over cardlist
+        //remove cards in pair
+        //recall render, but blank spot will be bottom right
+
+    }
 
 })();
