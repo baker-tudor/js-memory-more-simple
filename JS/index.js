@@ -34,6 +34,7 @@
     }
 
     function renderAllCards(cardList) {
+
         let html = "";
         for(let i = 0; i < cardList.length; i++) {
             html += renderCard(cardList[i])
@@ -41,11 +42,12 @@
         return html;
     }
 
-    function htmlRender() {
-        $('#board').append(renderAllCards(cardList))
+    function htmlRender(cardList) {
+        let modifiedCardList = combineLists(cardList);
+        $('#board').append(renderAllCards(modifiedCardList));
     }
 
-    htmlRender();
+    htmlRender(cardList);
 
     let nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 
@@ -62,7 +64,7 @@
         let nums2 = [...nums];
         let list1 = randomNum(nums);
         let list2 = randomNum(nums2);
-        let list3 = list1.concat(list2);
+        return list1.concat(list2);
     }
 
     combineLists(nums);
