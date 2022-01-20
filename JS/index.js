@@ -36,7 +36,7 @@
     }
 
     function renderEmptyCard() {
-        return `<div class="card transparent"></div>`;
+        return `<div class="card transparent" data-name="0"></div>`;
     }
 
     function renderAllCards(cardList) {
@@ -88,22 +88,20 @@
             if(pair[0] === pair[1]) {
                 console.log('You got a match!')
                 let updatedCardsOnBoard = runMatch(pair[0], getCardsOnBoard());
-
                 $('#board').html(renderUpdatedCards(updatedCardsOnBoard));
-
             }
             click1 = false;
             click2 = false;
             pair = [];
         }
-
     })
 
     function getCardsOnBoard() {
         let cardsOnBoard = [];
-        let cardCount = document.getElementsByClassName('card').length;
+        let cardCollection = document.getElementsByClassName('card');
+        let cardCount = cardCollection.length;
         for(let i = 0; i < cardCount; i++) {
-            cardsOnBoard.push(document.getElementsByClassName('card')[i].dataset.name);
+            cardsOnBoard.push(cardCollection[i].dataset.name);
         }
         return cardsOnBoard;
     }
@@ -114,7 +112,6 @@
                 cardDataList.splice(i, 1, '0')
             }
         }
-        console.log(cardDataList);
         return cardDataList;
     }
 
