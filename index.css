@@ -78,3 +78,7 @@ body {
     height: 100%;
     object-fit: cover;
 }
+
+.transparent {
+    visibility: hidden;
+}
