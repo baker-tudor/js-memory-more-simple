@@ -75,20 +75,22 @@
     let click1 = false;
     let click2 = false;
     let pair = [];
+    let cardLocations = [];
 
     $('body').on('click', '.card', function () {
         if(!click1) {
             console.log('first click')
             click1 = true;
             pair.push($(this)[0].dataset.name);
-            let i =
-            console.log(document.getElementsByClassName('card'));
-
+            cardLocations.push(getCardsOnBoard().indexOf($(this)[0].dataset.name));
+            cardLocations.push(getCardsOnBoard().lastIndexOf($(this)[0].dataset.name))
+            console.log(cardLocations);
         } else if(click1) {
+            console.log(cardLocations)
             console.log('2nd click')
             click2 = true;
             pair.push($(this)[0].dataset.name);
-            if(pair[0] === pair[1]) {
+            if(pair[0] === pair[1] && cardLocations[0] === cardLocations[1]) {
                 console.log('You got a match!')
                 let updatedCardsOnBoard = runMatch(pair[0], getCardsOnBoard());
                 $('#board').html(renderUpdatedCards(updatedCardsOnBoard));
