@@ -81,6 +81,9 @@
             console.log('first click')
             click1 = true;
             pair.push($(this)[0].dataset.name);
+            let i =
+            console.log(document.getElementsByClassName('card'));
+
         } else if(click1) {
             console.log('2nd click')
             click2 = true;
