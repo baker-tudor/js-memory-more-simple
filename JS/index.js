@@ -83,7 +83,6 @@
             click1 = true;
             pair.push($(this)[0].dataset.name);
             $(this)[0].style.pointerEvents = 'none';
-            console.log($(this)[0])
         } else if(click1) {
             console.log('2nd click')
             click2 = true;
