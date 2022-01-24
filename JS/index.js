@@ -82,17 +82,17 @@
             console.log('first click')
             click1 = true;
             pair.push($(this)[0].dataset.name);
-            $(this).click(function (){return false})
+            $(this)[0].style.pointerEvents = 'none';
+            console.log($(this)[0])
         } else if(click1) {
             console.log('2nd click')
             click2 = true;
+            document.querySelector('.card').style.pointerEvents = 'auto';
                 pair.push($(this)[0].dataset.name);
                 if (pair[0] === pair[1]) {
                     console.log('You got a match!')
                     let updatedCardsOnBoard = runMatch(pair[0], getCardsOnBoard());
                     $('#board').html(renderUpdatedCards(updatedCardsOnBoard));
-                } else if (cardLocations[0] === cardLocations[1]) {
-                    console.log('same card was clicked')
                 }
             click1 = false;
             click2 = false;
