@@ -86,7 +86,10 @@
         } else if(click1) {
             console.log('2nd click')
             click2 = true;
-            document.querySelector('.card').style.pointerEvents = 'auto';
+            Array.from(document.querySelectorAll('.card')).forEach(card => {
+                console.log(card)
+                card.style.pointerEvents = 'auto';
+            })
                 pair.push($(this)[0].dataset.name);
                 if (pair[0] === pair[1]) {
                     console.log('You got a match!')
